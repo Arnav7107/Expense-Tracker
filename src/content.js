@@ -41,7 +41,7 @@ const Content = () => {
 
     var [total_amount, setTotalAmount] = useState(0);
     
-   
+    var [list,setList] = useState('');
 
 
     const handleClick = (e) => {
@@ -59,6 +59,8 @@ const Content = () => {
             cal_total += x;
          });
          setTotalAmount(cal_total);
+         setList(expense);
+
          
     };
 
@@ -91,6 +93,8 @@ const Content = () => {
             <p>{console.log(total_amount)}</p>
             
             <h1>Total Expense: {total_amount}</h1>
+            <p>Reason: {list}</p>
+            
         </form>
         </>
       
