@@ -1,27 +1,7 @@
-import Header from './header.js';
-import Content from './content.js';
-
-
-
-function App() {
-  return(
-    <div><Header />
-    <Content />
-  
-    </div>
-    
-   
-  );
-  
-  
-}
-
-export default App;
-
 // import React from 'react';
-// import TextField from '@material-ui/core/TextField';
 
-// const App = () => {
+
+// const Datepicker = () => {
 
 // return (
 // 	<div style={{
@@ -43,5 +23,4 @@ export default App;
 // );
 // }
 
-// export default App;
-
+// export default Datepicker;
