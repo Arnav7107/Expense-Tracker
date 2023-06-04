@@ -92,7 +92,7 @@ const Content = () => {
             </div>
             
             <div style={{paddingTop:'20px'}}>
-                <button onClick={handleClick}>Click Me</button>
+                <button onClick={handleClick}>Add</button>
             </div>
             <p>{console.log(total_amount)}</p>
             
