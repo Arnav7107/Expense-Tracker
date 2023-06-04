@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import './index.css';
+import 'semantic-ui-css/semantic.min.css'
 
 const Content = () => {
 
@@ -70,19 +71,27 @@ const Content = () => {
     return(
        
         <>
-        <div style={{justifyItems:'center'}}>
+        <div style={{
+        display: "flex",
+        alignItems: "center",
+        height: "100%"
+      }}>
+        <div>
         <form>
             
-            <div>
-                <label>Enter the Amount: </label>
+            <div class="ui right labeled input">
+                <label for="amount" class="ui label">Enter the Amount: </label>
                 <input type="number" name = "amount"  value={amount} onChange={handle_amount} placeholder="Enter Amount" />
                 {/* <h1>Amount = {amount}</h1> */}
             </div>
-
-            <div style={{paddingTop:'20px'}}>
+            <br></br>
+            <div class="ui left corner labeled input" style={{paddingTop:'20px'}}>
                 <label>Type of Expense: </label>
                 <input type="text" name = "amount"  value={expense} onChange={handle_expense} placeholder="Enter Reason" />
                 {/* <h1>Type of Expense = {expense}</h1> */}
+                {/* <div class="ui left corner label">
+                    <i class="asterisk icon"></i>
+                </div> */}
             </div>
 
             <div style={{paddingTop:'20px'}}>
@@ -92,7 +101,7 @@ const Content = () => {
             </div>
             
             <div style={{paddingTop:'20px'}}>
-                <button onClick={handleClick}>Add</button>
+                <button class="ui secondary button" onClick={handleClick}>Add</button>
             </div>
             <p>{console.log(total_amount)}</p>
             
@@ -119,6 +128,7 @@ const Content = () => {
             
                         
         </form>
+        </div>
         </div>
         </>
       

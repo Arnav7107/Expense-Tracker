@@ -1,14 +1,27 @@
 import Header from './header.js';
 import Content from './content.js';
-
+import 'semantic-ui-css/semantic.min.css'
 
 
 function App() {
   return(
-    <div><Header />
+    // <div style={{
+    //   display: "flex",
+    //   alignItems: "center",
+    //   height: "100%"
+    // }}>
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        height: "100%"
+      }} class = "bg-teal-900 min-h-screen center">
+      <Header />
     <Content />
   
     </div>
+    
+    // </div>
     
    
   );
