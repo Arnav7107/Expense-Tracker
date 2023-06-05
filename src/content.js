@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import './index.css';
 import 'semantic-ui-css/semantic.min.css'
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const Content = () => {
 
@@ -96,7 +98,7 @@ const Content = () => {
             <br></br>
             <div class="ui right labeled input" style={{paddingTop:'20px'}}>
                 <label for="amount" class="ui label">Enter the Date: </label>
-                <input style={{width:"100%"}} type="date" name = "amount"  value={amount} onChange={handle_date} placeholder="Enter Date" />
+                <input style={{width:"100%"}} type="date" name = "amount"  value={date} onChange={handle_date} placeholder="Enter Date" />
                 {/* <h1>Date = {date}</h1> */}
             </div>
             
@@ -108,8 +110,9 @@ const Content = () => {
             <h1>Total Expense: {total_amount}</h1>
             {/* <p>Reason: {list}</p> */}
             <div>
-            {track_expense.map((expense) => (
-                // <div>
+                
+           
+                {/* // <div>
                 //     <p>
                 //         <li>
                 //         Reason:  {expense.expense}
@@ -120,8 +123,8 @@ const Content = () => {
                 //         </li>
                         
                 //     </p>
-                // </div>
-<p ><dl class="max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+                // </div> */}
+{/* <p ><dl class="max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
     <div style={{display:"flex", flexDirection:"row", justifyContent:"space-around"}} class="flex flex-col pb-3">
         <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Amount:</dt>
         <dd class="text-lg font-semibold">{expense.amount}</dd>
@@ -130,20 +133,56 @@ const Content = () => {
         <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Reason:</dt>
         <dd class="text-lg font-semibold">{expense.expense}</dd>
     </div>
-    <div style={{display:"flex", flexDirection:"row"}} class="flex flex-col pt-3">
+    <div style={{display:"flex", flexDirection:"row", justifyContent:"space-around"}} class="flex flex-col pt-3">
         <dt style={{display:"flex", flexDirection:"row"}} class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Date:</dt>
         <dd style={{display:"flex", flexDirection:"row", justifyContent:"space-around"}} class="text-lg font-semibold">{expense.date}</dd>
     </div>
-</dl></p>
+</dl></p> */}
 
 
-            ))}
+<table class="table">
+        <tr style={{paddingRight:"100px"}}>
+            <th class="row_heading table-primary" style={{paddingRight:"100px"}}>Amount</th>
+            <th class="row_heading table-primary" style={{paddingRight:"100px"}}>Expense</th>
+            <th class="row_heading table-primary"  style={{paddingRight:"100px"}}>Date</th>
+        </tr>
+        {track_expense.length > 0 ?
+        (track_expense.map((expense) => (
+        <tr>
+            <td>{expense.amount}</td>
+            <td>{expense.expense}</td>
+            <td>{expense.date}</td>
+        </tr>
+        )))
+    :
+    (
+        <div>No expenses yet</div>
+    )}
 
+    </table>
+
+
+          
             </div>
 
             
                         
         </form>
+
+
+{/* <table class="table">
+    <thead class="table-primary">
+        asd
+    </thead>
+    <thead class="table-primary">
+        asd
+    </thead>
+    <tr>
+        <td>jgjh</td>
+        <td>jgjh</td>
+    </tr>
+</table> */}
+
         </div>
         </div>
         </>
