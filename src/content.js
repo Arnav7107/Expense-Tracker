@@ -41,11 +41,17 @@ const Content = () => {
         setDate(e.target.value);
     }
 
-   
+    const time = new Date();
+    const showTime = time.getHours()
+        + ':' + time.getMinutes()
+        + ":" + time.getSeconds();
     
+        // const [showTime, setShowTime] = useState(showTime)
     const [track_expense, setTrackExpense] = useState([]);
 
     var [total_amount, setTotalAmount] = useState(0);
+
+    var [total_received, setTotalReceived] = useState(0);
     
     var [list,setList] = useState('');
 
@@ -85,7 +91,7 @@ const Content = () => {
             cal_received += x.amount;
          });
          cal_received += amount;
-         setTotalAmount(cal_received);
+         setTotalReceived(cal_received);
          setList(expense);
     }
 
@@ -99,26 +105,26 @@ const Content = () => {
         height: "100%"
       }}>
         <div>
-        <form>
+        <form className='w-2/3' onSubmit={() => {}}>
             
-            <div class="ui right labeled input">
+            <div class="ui right labeled input w-full">
                 <label for="amount" class="ui label">Enter the Amount: </label>
-                <input style={{width:"100%"}} type="number" name = "amount"  value={amount} onChange={handle_amount} placeholder="Enter Amount" required = "required"/>
+                <input style={{width:"100%"}} type="number" name = "amount"  value={amount} onChange={handle_amount} placeholder="Enter Amount" required />
                 {/* <h1>Amount = {amount}</h1> */}
             </div>
             <br></br>
-            <div class="ui right labeled input" style={{paddingTop:'20px'}}>
+            <div class="ui right labeled input w-full" style={{paddingTop:'20px'}}>
                 <label for="amount" class="ui label">Type of Expense: </label>
-                <input style={{width:"100%"}} type="text" name = "amount"  value={expense} onChange={handle_expense} placeholder="Enter Reason" required = "required"/>
+                <input style={{width:"100%"}} type="text" name = "amount"  value={expense} onChange={handle_expense} placeholder="Enter Reason" required />
                 {/* <h1>Type of Expense = {expense}</h1> */}
                 {/* <div class="ui left corner label">
                     <i class="asterisk icon"></i>
                 </div> */}
             </div>
             <br></br>
-            <div class="ui right labeled input" style={{paddingTop:'20px'}}>
+            <div class="ui right labeled input w-full" style={{paddingTop:'20px'}}>
                 <label for="amount" class="ui label">Enter the Date: </label>
-                <input style={{width:"100%"}} type="date" name = "amount"  value={date} onChange={handle_date} placeholder="Enter Date" required= "required"/>
+                <input style={{width:"100%"}} type="date" name = "amount"  value={date} onChange={handle_date} placeholder="Enter Date" required />
                 {/* <h1>Date = {date}</h1> */}
             </div>
             
@@ -129,6 +135,7 @@ const Content = () => {
             </div>
             
             <h1>Total Expense: {total_amount}</h1>
+            <h1>Total Received: {total_received}</h1>
             {/* <p>Reason: {list}</p> */}
             <div>
                 
@@ -166,6 +173,7 @@ const Content = () => {
             <th class="row_heading table-primary" style={{paddingRight:"100px"}}>Amount</th>
             <th class="row_heading table-primary" style={{paddingRight:"100px"}}>Expense</th>
             <th class="row_heading table-primary"  style={{paddingRight:"100px"}}>Date</th>
+            <th class="row_heading table-primary"  style={{paddingRight:"100px"}}>Time</th>
         </tr>
         {track_expense.length > 0 ?
         (track_expense.map((expense) => (
@@ -173,6 +181,7 @@ const Content = () => {
             <td>{expense.amount}</td>
             <td>{expense.expense}</td>
             <td>{expense.date}</td>
+            <td>{showTime}</td>
         </tr>
         )))
     :
@@ -185,8 +194,9 @@ const Content = () => {
     <table class="table">
         <tr style={{paddingRight:"100px"}}>
             <th class="row_heading table-primary" style={{paddingRight:"100px"}}>Amount</th>
-            <th class="row_heading table-primary" style={{paddingRight:"100px"}}>Reason</th>
+            <th class="row_heading table-primary" style={{paddingRight:"100px"}}>Received</th>
             <th class="row_heading table-primary"  style={{paddingRight:"100px"}}>Date</th>
+            <th class="row_heading table-primary"  style={{paddingRight:"100px"}}>Time</th>
         </tr>
         {track_received.length > 0 ?
         (track_received.map((expense) => (
@@ -194,6 +204,7 @@ const Content = () => {
             <td>{expense.amount}</td>
             <td>{expense.expense}</td>
             <td>{expense.date}</td>
+            <td>{showTime}</td>
         </tr>
         )))
     :
