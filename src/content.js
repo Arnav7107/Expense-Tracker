@@ -81,22 +81,22 @@ const Content = () => {
             
             <div class="ui right labeled input">
                 <label for="amount" class="ui label">Enter the Amount: </label>
-                <input type="number" name = "amount"  value={amount} onChange={handle_amount} placeholder="Enter Amount" />
+                <input style={{width:"100%"}} type="number" name = "amount"  value={amount} onChange={handle_amount} placeholder="Enter Amount" />
                 {/* <h1>Amount = {amount}</h1> */}
             </div>
             <br></br>
-            <div class="ui left corner labeled input" style={{paddingTop:'20px'}}>
-                <label>Type of Expense: </label>
-                <input type="text" name = "amount"  value={expense} onChange={handle_expense} placeholder="Enter Reason" />
+            <div class="ui right labeled input" style={{paddingTop:'20px'}}>
+                <label for="amount" class="ui label">Type of Expense: </label>
+                <input style={{width:"100%"}} type="text" name = "amount"  value={expense} onChange={handle_expense} placeholder="Enter Reason" />
                 {/* <h1>Type of Expense = {expense}</h1> */}
                 {/* <div class="ui left corner label">
                     <i class="asterisk icon"></i>
                 </div> */}
             </div>
-
-            <div style={{paddingTop:'20px'}}>
-                <label>Enter the Date: </label>
-                <input type="date" name = "amount"  value={amount} onChange={handle_date} placeholder="Enter Date" />
+            <br></br>
+            <div class="ui right labeled input" style={{paddingTop:'20px'}}>
+                <label for="amount" class="ui label">Enter the Date: </label>
+                <input style={{width:"100%"}} type="date" name = "amount"  value={amount} onChange={handle_date} placeholder="Enter Date" />
                 {/* <h1>Date = {date}</h1> */}
             </div>
             
@@ -109,18 +109,34 @@ const Content = () => {
             {/* <p>Reason: {list}</p> */}
             <div>
             {track_expense.map((expense) => (
-                <div>
-                    <p>
-                        <li>
-                        Reason:  {expense.expense}
-                        <br></br>
-                        Amount:  {expense.amount}
-                        <br></br>
-                        Date:   {expense.date}
-                        </li>
+                // <div>
+                //     <p>
+                //         <li>
+                //         Reason:  {expense.expense}
+                //         <br></br>
+                //         Amount:  {expense.amount}
+                //         <br></br>
+                //         Date:   {expense.date}
+                //         </li>
                         
-                    </p>
-                </div>
+                //     </p>
+                // </div>
+<p ><dl class="max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+    <div style={{display:"flex", flexDirection:"row", justifyContent:"space-around"}} class="flex flex-col pb-3">
+        <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Amount:</dt>
+        <dd class="text-lg font-semibold">{expense.amount}</dd>
+    </div>
+    <div style={{display:"flex", flexDirection:"row", justifyContent:"space-around"}} class="flex flex-col py-3">
+        <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Reason:</dt>
+        <dd class="text-lg font-semibold">{expense.expense}</dd>
+    </div>
+    <div style={{display:"flex", flexDirection:"row"}} class="flex flex-col pt-3">
+        <dt style={{display:"flex", flexDirection:"row"}} class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Date:</dt>
+        <dd style={{display:"flex", flexDirection:"row", justifyContent:"space-around"}} class="text-lg font-semibold">{expense.date}</dd>
+    </div>
+</dl></p>
+
+
             ))}
 
             </div>
