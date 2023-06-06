@@ -136,6 +136,7 @@ const Content = () => {
             
             <h1>Total Expense: {total_amount}</h1>
             <h1>Total Received: {total_received}</h1>
+            <h1>Net: {total_amount-total_received}</h1>
             {/* <p>Reason: {list}</p> */}
             <div>
                 
