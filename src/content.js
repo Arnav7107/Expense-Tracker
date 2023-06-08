@@ -6,7 +6,6 @@ import 'semantic-ui-css/semantic.min.css'
 // import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const Content = () => {
-
    
     const [amount,setAmount] = useState(0);
     
