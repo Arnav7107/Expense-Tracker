@@ -7,6 +7,7 @@ import 'semantic-ui-css/semantic.min.css'
 
 const Content = () => {
    
+   
     const [amount,setAmount] = useState(0);
     
     const [expense,setExpense] = useState('');
